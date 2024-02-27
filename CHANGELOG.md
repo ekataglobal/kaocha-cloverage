@@ -6,6 +6,12 @@
 
 ## Changed
 
+# TODO (2024-02-27 / 162112b)
+
+## Changed
+
+- Add support for new cloverage flags `--line-fail-threshold` and `--form-fail-threshold` 
+
 # 1.1.89 (2022-11-09 / c2b2dbf)
 
 ## Added
