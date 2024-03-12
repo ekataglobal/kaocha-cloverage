@@ -103,6 +103,18 @@
       (is (match? {:fail-threshold 42} (update-config' {:fail-threshold 20} ["--cov-fail-threshold" "42"])))
       (is (match? {:fail-threshold 42} (update-config' {} ["--cov-fail-threshold" "42"]))))
 
+    (testing "--cov-line-fail-threshold PERCENT"
+      (is (match? {:line-fail-threshold 0} (update-config' {} [])))
+      (is (match? {:line-fail-threshold 20} (update-config' {:line-fail-threshold 20} [])))
+      (is (match? {:line-fail-threshold 42} (update-config' {:line-fail-threshold 20} ["--cov-line-fail-threshold" "42"])))
+      (is (match? {:line-fail-threshold 42} (update-config' {} ["--cov-line-fail-threshold" "42"]))))
+
+    (testing "--cov-form-fail-threshold PERCENT"
+      (is (match? {:form-fail-threshold 0} (update-config' {} [])))
+      (is (match? {:form-fail-threshold 20} (update-config' {:form-fail-threshold 20} [])))
+      (is (match? {:form-fail-threshold 42} (update-config' {:form-fail-threshold 20} ["--cov-form-fail-threshold" "42"])))
+      (is (match? {:form-fail-threshold 42} (update-config' {} ["--cov-form-fail-threshold" "42"]))))
+
     (testing "--cov-low-watermark PERCENT"
       (is (match? {:low-watermark 50} (update-config' {} [])))
       (is (match? {:low-watermark 20} (update-config' {:low-watermark 20} [])))

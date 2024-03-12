@@ -20,6 +20,8 @@
    :coveralls? false
    :summary? true
    :fail-threshold 0
+   :line-fail-threshold 0
+   :form-fail-threshold 0
    :low-watermark 50
    :high-watermark 80
    :nop? false
@@ -44,7 +46,15 @@
    ["--[no-]cov-summary"
     "Prints a summary"]
    ["--cov-fail-threshold PERCENT"
-    "Sets the percentage threshold at which cloverage will abort the build. Default: 0%"
+    "Sets the percentage threshold for both line and form coverageat which cloverage will abort the build. Default: 0%"
+    :parse-fn #(Integer/parseInt %)]
+   ["--cov-line-fail-threshold PERCENT"
+    "Sets the percentage threshold for line coverage at which cloverage will abort the build.
+    Ignored if --cov-fail-threshold is non-zero. Default: 0%"
+    :parse-fn #(Integer/parseInt %)]
+   ["--cov-form-fail-threshold PERCENT"
+    "Sets the percentage threshold for form coverage at which cloverage will abort the build.
+    Ignored if --cov-fail-threshold is non-zero. Default: 0%"
     :parse-fn #(Integer/parseInt %)]
    ["--cov-low-watermark PERCENT"
     "Sets the low watermark percentage (valid values 0..100). Default: 50%"
@@ -102,6 +112,12 @@
 
                (contains? opts :cov-fail-threshold)
                (assoc :fail-threshold (:cov-fail-threshold opts))
+
+               (contains? opts :cov-line-fail-threshold)
+               (assoc :line-fail-threshold (:cov-line-fail-threshold opts))
+
+               (contains? opts :cov-form-fail-threshold)
+               (assoc :form-fail-threshold (:cov-form-fail-threshold opts))
 
                (contains? opts :cov-low-watermark)
                (assoc :low-watermark (:cov-low-watermark opts))

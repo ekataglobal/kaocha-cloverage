@@ -86,6 +86,8 @@ Alternatively Cloverage can be configured through `tests.edn`. Source paths spec
   :lcov? false,
   :high-watermark 80,
   :fail-threshold 0,
+  :line-fail-threshold 0,
+  :form-fail-threshold 0,
   :output "target/coverage",
   :low-watermark 50,
   :ns-regex [],
