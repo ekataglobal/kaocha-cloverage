@@ -1,8 +1,8 @@
 {:paths ["src"]
  :deps  {org.clojure/clojure {:mvn/version "1.10.1"}
          lambdaisland/kaocha {:mvn/version "0.0-601"}
-         cloverage/cloverage {:git/url    "https://github.com/ekataglobal/cloverage"
-                              :sha        "1b377c883f4c7e43c2084a47ab3aee0e8f522e05"
+         cloverage/cloverage {:git/url    "https://github.com/cloverage/cloverage"
+                              :sha        "e427762f75d3e1fe461554c08ad247a7365580d2"
                               :deps/root  "cloverage"}}
  :aliases
  {:dev
